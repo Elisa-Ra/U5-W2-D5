@@ -2,6 +2,7 @@ package elisaraeli.U5_W2_D5.services;
 
 import elisaraeli.U5_W2_D5.entities.Dipendente;
 import elisaraeli.U5_W2_D5.entities.Prenotazione;
+import elisaraeli.U5_W2_D5.entities.StatoViaggio;
 import elisaraeli.U5_W2_D5.entities.Viaggio;
 import elisaraeli.U5_W2_D5.exceptions.BadRequestException;
 import elisaraeli.U5_W2_D5.exceptions.NotFoundException;
@@ -30,8 +31,8 @@ public class PrenotazioneService {
         Dipendente dipendente = dipendenteService.findById(body.dipendenteId());
         Viaggio viaggio = viaggioService.findById(body.viaggioId());
 
-        // controllo che il booleano completato sia false
-        if (viaggio.isCompletato()) {
+        // durante la creazione lo stato del viaggio non può essere COMPLETATO
+        if (viaggio.getStato() == StatoViaggio.COMPLETATO) {
             throw new BadRequestException("Non è possibile prenotare un viaggio già completato.");
         }
 

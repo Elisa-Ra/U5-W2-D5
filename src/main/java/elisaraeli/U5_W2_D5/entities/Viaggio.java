@@ -1,9 +1,6 @@
 package elisaraeli.U5_W2_D5.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,5 +19,7 @@ public class Viaggio {
     private UUID id;
     private String destinazione;
     private LocalDate data;
-    private boolean completato;
+    @Enumerated(EnumType.STRING)
+    private StatoViaggio stato;
+
 }

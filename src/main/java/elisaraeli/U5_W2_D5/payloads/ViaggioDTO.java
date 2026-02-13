@@ -1,6 +1,6 @@
 package elisaraeli.U5_W2_D5.payloads;
 
-import jakarta.validation.constraints.AssertFalse;
+import elisaraeli.U5_W2_D5.entities.StatoViaggio;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -13,10 +13,9 @@ public record ViaggioDTO(
         String destinazione,
         @NotNull(message = "La data del viaggio è obbligatoria!")
         LocalDate data,
-        // per il booleano "completato", durante la creazione del viaggio voglio che sia false
-        // perché il viaggio non è ancora stato completato
-        @AssertFalse(message = "Il campo deve essere falso")
-        boolean completato
+        @NotNull(message = "Lo stato del viaggio è obbligatorio!")
+        StatoViaggio stato
+
 ) {
 
 }

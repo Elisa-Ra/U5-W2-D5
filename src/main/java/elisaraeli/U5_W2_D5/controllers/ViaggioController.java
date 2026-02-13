@@ -1,5 +1,6 @@
 package elisaraeli.U5_W2_D5.controllers;
 
+import elisaraeli.U5_W2_D5.entities.StatoViaggio;
 import elisaraeli.U5_W2_D5.entities.Viaggio;
 import elisaraeli.U5_W2_D5.exceptions.BadRequestException;
 import elisaraeli.U5_W2_D5.payloads.ViaggioDTO;
@@ -60,13 +61,10 @@ public class ViaggioController {
         viaggioService.findByIdAndDelete(viaggioId);
     }
 
-    // 6. - PATCH http://localhost:3001/viaggi/{id}/stato?completato=true
+    // 6. - PATCH http://localhost:3001/viaggi/{id}/stato?stato=COMPLETATO
     @PatchMapping("/{viaggioId}/stato")
-    public Viaggio updateStato(
-            @PathVariable UUID viaggioId,
-            @RequestParam boolean completato
-    ) {
-        return viaggioService.updateStato(viaggioId, completato);
+    public Viaggio updateStato(@PathVariable UUID viaggioId, @RequestParam StatoViaggio stato) {
+        return viaggioService.updateStato(viaggioId, stato);
     }
 
 }

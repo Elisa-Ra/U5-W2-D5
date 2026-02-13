@@ -1,5 +1,6 @@
 package elisaraeli.U5_W2_D5.services;
 
+import elisaraeli.U5_W2_D5.entities.StatoViaggio;
 import elisaraeli.U5_W2_D5.entities.Viaggio;
 import elisaraeli.U5_W2_D5.exceptions.NotFoundException;
 import elisaraeli.U5_W2_D5.payloads.ViaggioDTO;
@@ -25,7 +26,7 @@ public class ViaggioService {
         Viaggio newViaggio = new Viaggio();
         newViaggio.setDestinazione(body.destinazione());
         newViaggio.setData(body.data());
-        newViaggio.setCompletato(body.completato());
+        newViaggio.setStato(body.stato());
         return viaggioRepository.save(newViaggio);
     }
 
@@ -54,15 +55,15 @@ public class ViaggioService {
         Viaggio found = this.findById(id);
         found.setDestinazione(body.destinazione());
         found.setData(body.data());
-        found.setCompletato(body.completato());
+        found.setStato(body.stato());
         return viaggioRepository.save(found);
     }
 
     // modifico il booleano che controlla lo stato del viaggio
     // l'endpoint sarà PATCH /viaggi/{id}/stato?completato=true
-    public Viaggio updateStato(UUID id, boolean completato) {
+    public Viaggio updateStato(UUID id, StatoViaggio stato) {
         Viaggio found = this.findById(id);
-        found.setCompletato(completato);
+        found.setStato(stato);
         return viaggioRepository.save(found);
     }
 
