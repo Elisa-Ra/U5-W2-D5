@@ -59,7 +59,7 @@ public class ViaggioService {
         return viaggioRepository.save(found);
     }
 
-    // modifico il booleano che controlla lo stato del viaggio
+    // modifico lo stato del viaggio
     // l'endpoint sarà PATCH /viaggi/{id}/stato?completato=true
     public Viaggio updateStato(UUID id, StatoViaggio stato) {
         Viaggio found = this.findById(id);
