@@ -16,6 +16,6 @@ TABELLE:
 
 
 SCREEN DA POSTMAN:
-<img width="1920" height="1080" alt="Screenshot (22)" src="https://github.com/user-attachments/assets/eabfceb1-5068-4f25-b505-55dd0c316d87" />
+<img width="1920" height="1080" alt="Screenshot (28)" src="https://github.com/user-attachments/assets/2ad50b18-997b-4e97-a19f-ffc9c88f7e5d" />
 <img width="1920" height="1080" alt="Screenshot (25)" src="https://github.com/user-attachments/assets/d6c93aca-5c21-44f9-8b1a-c3d5d42307f0" />
 <img width="1920" height="1080" alt="Screenshot (26)" src="https://github.com/user-attachments/assets/e172b2d9-3784-4546-9bec-1d0a36184de8" />
