@@ -1,9 +1,6 @@
 package elisaraeli.U5_W2_D5.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,7 +11,12 @@ import java.util.UUID;
 @Setter
 @ToString
 @Entity
-@Table(name = "dipendente")
+// rendo unique sia l'email che lo username del dipendente
+@Table(name = "dipendente", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "email"),
+        @UniqueConstraint(columnNames = "username")
+}
+)
 public class Dipendente {
     @Id
     @GeneratedValue
