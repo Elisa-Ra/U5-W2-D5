@@ -62,6 +62,7 @@ public class DipendenteController {
         dipendenteService.findByIdAndDelete(dipendenteId);
     }
 
+    // 6. - PATCH http://localhost:3001/dipendenti/{id}/avatar
     @PatchMapping("/{dipendenteId}/avatar")
     public Dipendente uploadAvatar(@RequestParam("avatar") MultipartFile file, @PathVariable UUID dipendenteId) {
         try {
