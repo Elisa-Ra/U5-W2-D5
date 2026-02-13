@@ -60,7 +60,7 @@ public class ViaggioService {
     }
 
     // modifico lo stato del viaggio
-    // l'endpoint sarà PATCH /viaggi/{id}/stato?completato=true
+    // l'endpoint sarà PATCH /viaggi/{id}/stato?stato=COMPLETATO
     public Viaggio updateStato(UUID id, StatoViaggio stato) {
         Viaggio found = this.findById(id);
         found.setStato(stato);
