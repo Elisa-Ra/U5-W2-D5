@@ -25,7 +25,7 @@ public class JWTTools {
                 // Data di emissione (IaT - Issued At), va messa in millisecondi
                 .issuedAt(new Date(System.currentTimeMillis()))
                 // Data di scadenza (Expiration Date) anche questa va messa in millisecondi
-                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 7))
+                .expiration(new Date(System.currentTimeMillis() + (1000 * 60 * 60 * 24 * 7)))
                 // Subject cioè a chi appartiene il token. Ci inseriamo l'id dell'utente (MAI DATI SENSIBILI)
                 .subject(String.valueOf(dipendente.getId()))
                 // Firmo il token fornendogli un segreto che il server conosce e usa per creare token
