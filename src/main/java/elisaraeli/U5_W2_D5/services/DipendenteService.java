@@ -41,6 +41,7 @@ public class DipendenteService {
         newDipendente.setCognome(body.cognome());
         newDipendente.setEmail(body.email());
         newDipendente.setUsername(body.username());
+        newDipendente.setPassword(body.password());
         return dipendenteRepository.save(newDipendente);
     }
 

@@ -14,9 +14,9 @@ public class AuthService {
     private final JWTTools jwtTools;
 
     @Autowired
-    public AuthService(DipendenteService usersService, JWTTools jwtTools) {
+    public AuthService(DipendenteService dipendenteService, JWTTools jwtTools) {
 
-        this.dipendenteService = usersService;
+        this.dipendenteService = dipendenteService;
         this.jwtTools = jwtTools;
     }
 
