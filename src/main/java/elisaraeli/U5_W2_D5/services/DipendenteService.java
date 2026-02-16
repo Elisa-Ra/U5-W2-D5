@@ -95,4 +95,10 @@ public class DipendenteService {
         found.setAvatar(avatarURL);
         return dipendenteRepository.save(found);
     }
+
+    // Cerco un dipendente per email
+    public Dipendente findByEmail(String email) {
+        return this.dipendenteRepository.findByEmail(email)
+                .orElseThrow(() -> new NotFoundException("L'utente con email " + email + " non è stato trovato!"));
+    }
 }
