@@ -1,6 +1,5 @@
 package elisaraeli.U5_W2_D5.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -16,11 +15,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity // Classe di configurazione apposita di Spring Security
 @EnableMethodSecurity // Annotazione OBBLIGATORIA per usare le varie @PreAuthorize sugli endpoint
 public class SecurityConfig {
-    @Autowired
-    private JWTCheckerFilter filter;
+
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) {
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, JWTCheckerFilter filter) {
         // Bean per configurare le impostazioni di sicurezza di Spring Security
 
         // - Disabilitare comportamenti di default che non voglio
@@ -52,5 +50,5 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder(12);
     }
 
-   
+
 }

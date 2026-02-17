@@ -3,6 +3,7 @@ package elisaraeli.U5_W2_D5.services;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import elisaraeli.U5_W2_D5.entities.Dipendente;
+import elisaraeli.U5_W2_D5.entities.Role;
 import elisaraeli.U5_W2_D5.exceptions.BadRequestException;
 import elisaraeli.U5_W2_D5.exceptions.NotFoundException;
 import elisaraeli.U5_W2_D5.payloads.DipendenteDTO;
@@ -50,6 +51,8 @@ public class DipendenteService {
         newDipendente.setEmail(body.email());
         newDipendente.setUsername(body.username());
         newDipendente.setPassword(bcrypt.encode(body.password()));
+        newDipendente.setRole(Role.USER);
+
         return dipendenteRepository.save(newDipendente);
     }
 
