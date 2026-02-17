@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,11 +21,18 @@ import java.util.UUID;
 
 @Service
 public class DipendenteService {
+    private final PasswordEncoder bcrypt;
     @Autowired
     private Cloudinary cloudinaryUploader;
-
     @Autowired
     private DipendenteRepository dipendenteRepository;
+
+    @Autowired
+    public DipendenteService(DipendenteRepository dipendenteRepository, PasswordEncoder passwordEncoder) {
+
+        this.dipendenteRepository = dipendenteRepository;
+        this.bcrypt = passwordEncoder;
+    }
 
     public Dipendente save(DipendenteDTO body) throws IOException {
         // controllo che l'email non sià già presente
@@ -41,7 +49,7 @@ public class DipendenteService {
         newDipendente.setCognome(body.cognome());
         newDipendente.setEmail(body.email());
         newDipendente.setUsername(body.username());
-        newDipendente.setPassword(body.password());
+        newDipendente.setPassword(bcrypt.encode(body.password()));
         return dipendenteRepository.save(newDipendente);
     }
 
